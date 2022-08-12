@@ -12,7 +12,7 @@ fieldset, img, input, button { 			/*fieldset组合表单中的相关元素*/
     outline-style: none;
 }
 
-ul, ol {
+ul, li {
     list-style: none;				/*清除列表风格*/
 }
 
@@ -122,52 +122,55 @@ s, i, em {
 }
 
 
+
 	/* nav开始 */
-/* 	.w {
-		width: 1020px ;
-		margin: 0 auto;
-	} */
-	.site-nav {
+	.nav {
 		height: 30px;
-		background-color: #f0f0f0;
 		line-height: 30px;
+		background-color: #f0f0f0;
 	}
-	.site-nav-send,
-	.site-nav-r .fare {
+	.nav .nav-left {
+		float: left;
+	}
+	.nav .nav-left .send {
+		height: 30px;
 		position: relative;
 		padding: 0 25px 0 10px;
 	}
-	.site-nav-send:hover {
-		background-color: #FFFFFF;
-		
+	.nav .nav-left .send:hover {
+		background-color: #fff;
 	}
-	.site-nav-send i ,
-	.fare i {
+	.send i ,
+	.nav-right li i {
 		position: absolute;
-		top: 12px;
-		right: 8px;
 		width: 15px;
 		height: 7px;
+		top: 12px;
 		overflow: hidden;
 	}
-	.site-nav-send s,
-	.fare s {
+	.send s ,
+	.nav-right li s {
 		position: absolute;
-		top: -7px;
-		font:400 13px/15px "consolas";
+		top: -14px;
+		font: 400 14px/30px "consolas";
 	}
-	.site-nav-r li {
-		float:left;
-		padding: 0 10px;
+	.nav-right {
+		float: right;
+		padding: 0 20px;
 	}
-	.site-nav-r .line {
+	.nav-right li {
+		float: left;
+		padding: 0 16px;
+		
+	}
+	.nav-right .line {
 		width: 1px;
-		height: 12px;
+		height: 15px;
+		background-color: #ddd;
+		padding: 0;
 		margin-top: 9px;
-		padding: 0px;
-		background: #DDD;
 	}
-	.site-nav-r .jd-tel {
+	.nav-right  .jd-tel {
 		position: relative;
 		padding-left: 25px;
 	}
@@ -180,55 +183,51 @@ s, i, em {
 		background: url(../images/tel.png) no-repeat;
 	}
 	/* nav结束 */
+	
 	/* top-banner开始 */
 	.top-banner {
 		background-color: #FD6500;
 	}
-	.tb {
+	.top-banner .tb {
 		position: relative;
 	}
 	.close-banner {
 		position: absolute;
-		top: 5px;
-		right: 5px;
 		width: 19px;
 		height: 19px;
+		top: 5px;
+		right: 5px;
 		background: url(../images/close-banner.png) no-repeat;
 	}
 	.close-banner:hover {
 		background-position: bottom;
 	}
-		
 	/* top-banner结束 */
 	
 	/* search开始 */
-	.search-logo {
+	.search {
+		position: relative;
+	}
+	.search-left a {
+		display: block;
 		float: left;
 		width: 362px;
 		height: 60px;
 		padding: 20px 0;
 	}
-	.search-logo a {
-		width: 270px;
-		height: 60px;
-		text-indent: -9999px;
-		display: block;
-		background: url(../images/logo.png) no-repeat;
-	}
 	.search-input {
-		padding-top: 25px;
 		float: left;
-		width: 542px;
-	} 
+		width: 544px;
+		padding-top: 25px;
+	}
 	.search-input input {
 		float: left;
-		padding-left: 4px ;
-		color: #ccc;
-		font: 400 14px/32px "microsoft yahei";
+		border: 2px solid #b61d1d;
 		width: 454px;
 		height: 32px;
-		border: 2px solid #b61d1d;
-		border-right: 0;
+		padding-left: 4px;
+		font: 400 14px/32px "microsoft yahei";
+		color: #ccc;
 	}
 	.search-input button {
 		float: left;
@@ -239,41 +238,40 @@ s, i, em {
 		cursor: pointer;
 		background-color: #b61d1d;
 	}
-	.search-car {
+	.search-fight {
 		position: relative;
+		margin: 25px 65px 0 0;
 		float: right;
 		width: 96px;
-		height: 34px; 
+		height: 34px;
 		line-height: 34px;
 		padding-left: 43px;
 		border: 1px solid #dfdfdf;
-		margin: 25px 65px 0 0 ;
 	}
-	.search-car .icon1 {
+	.search-fight .icon1 {
 		position: absolute;
 		top: 9px;
-		left: 18px;
+		left: 19px;
 		width: 18px;
 		height: 16px;
 		background: url(../images/tel.png) no-repeat 0 -58px;
 	}
-	.search-car .icon2 {
+	.search-fight .icon2 {
 		position: absolute;
 		right: 10px;
-		color: #999;
-		font: 400 13px/34px "SimSun";
-		line-height: 34px;
+		font-family: "simsun";
 	}
-	.search-car .icon3 {
+	.search-fight .icon3 {
 		position: absolute;
 		width: 16px;
 		height: 14px;
-		top: -5px ;
-		line-height: 14px;
+		background-color:#B61D1D;
+		margin-top: -7px;
+		line-height: 16px;
 		text-align: center;
-		background-color: #C81623;
 		color: #fff;
 		border-radius: 7px 7px 7px 0;
+		cursor: pointer;
 	}
 	.search-more {
 		float: left;
@@ -286,144 +284,46 @@ s, i, em {
 	}
 	/* search结束 */
 	
-	/* shortcut-nav开始 */
+	/* shortcut-nav开始  */
 	.shortcut-nav {
+		position: relative;
 		width: 100%;
 		height: 44px;
-		border-bottom: 2px solid #b1191a;
+		border-bottom: 2px solid  #b1191a;
 	}
-	.shortcut-nav-menu { 
-		position: relative;
+	.shortcut-nav-left-menu {
 		float: left;
 		width: 210px;
 		height: 44px;
-		z-index: 1;
 	}
-	.shortcut-nav-menu-all a {
+	.shortcut-nav-left-menu a {
 		display: block;
 		width: 190px;
 		height: 44px;
 		font: 400 15px/44px "microsoft yahei";
-		padding:0 10px;
 		background-color: #B1191A;
-		color: #FFFFFF;
-	}
-	.shortcut-nav-menu-one {
-	    height: 465px;
-	    margin-top: 2px;
-	    background-color: #C81623;
-	    border-left: 1px solid #B1191A;
-	    border-bottom: 1px solid #B1191A;
-	}
-	.shortcut-nav-menu-one div {
-		height: 31px;
 		padding: 0 10px;
-		font: 400 14px/31px "microsoft yahei";
-	}
-	.shortcut-nav-menu-one div:hover {
-		background-color: #fff;
-		color: #B1191A;
-	}
-	.shortcut-nav-menu-one h3 {
-		float: left;
-	}
-	.shortcut-nav-menu-one a {
 		color: #fff;
 	}
-	.shortcut-nav-menu-one i {
-		float: right;
-		color: #fff;
-		font: 400 9px/31px "consolas";
-	}
-	.shortcut-nav-items {
+	.shortcut-nav-con {
 		float: left;
-		height: 44px;
 		width: 730px;
+		height: 44px;
 	}
-	.shortcut-nav-items li {
+	.shortcut-nav-con li {
 		float: left;
-		
 	}
-	.shortcut-nav-items a {
+	.shortcut-nav-con a {
 		display: block;
 		height: 44px;
-		padding: 0 20px;
-		color: #333;
 		font: 400 15px/44px "microsoft yahei";
-	}
-	.shortcut-nav-items a:hover {
-		color: #c81623;
+		padding: 0 20px;
 	}
 	.shortcut-nav-img {
 		float: right;
 		width: 200px;
 		height: 44px;
-		margin-right: 50px;
 		margin-top: -10px;
+		margin-right: 50px;
 	}
-	/* shortcut-nav结束 */
-	
-	/* footer开始 */
-	.footer-top-slogen {
-		height: 94px;
-		position: relative;
-		margin-bottom: 34px;
-		background-color: #F5F5F5;
-	}
-	.footer-top-slogen-icon {
-		position: absolute; 
-		left: 50%;
-		top: 20px;
-	}
-	.footer-top-slogen-icon1 {
-		margin-left: -604PX;
-	}
-	.footer-top-slogen-icon2 {
-		margin-left: -302PX;
-	}
-	.footer-top-slogen-icon4 {
-		margin-left: 302PX;
-	}
-	.footer-top-shopping dl {
-		float: left;
-		width: 200px;
-	}
-	.footer-top-shopping .last-dl{
-		width: 100px;
-	} 
-	.footer-top-shopping dt ,
-	.footer-top-shopping .coverage .coverage-title {
-		height: 34px;
-		font: 400 14px/34px "microsoft yahei";
-	}
-	.footer-top-shopping dd,
-	.footer-top-shopping .coverage .coverage-con {
-		line-height: 20px;
-	}
-	.footer-top-shopping .coverage {
-		float: right;
-		width: 203px;
-		height: 169px;
-		margin-right:20px;
-		padding-left: 20px;
-		background: url(../images/china.png) no-repeat left bottom;
-	}
-	.footer-top-shopping .coverage a {
-		float: right;
-	}
-	.footer-bottom {
-		border-top: 1px solid #e5e5e5;
-		margin-top: 20px;
-		text-align: center;
-		padding: 20px 0 30px 0;
-	}
-	.footer-bottom-links a {
-		margin: 0 10px;
-	}
-	.footer-bottom-copyright .con {
-		padding: 10px 0;
-	}
-	.footer-bottom-img a {
-		margin: 0 5px;
-	}
-	/* footer结束 */
+	/* shortcut-nav结束  */
