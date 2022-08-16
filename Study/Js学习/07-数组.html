@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//定义1（字面量定义）
+			var array=[1,2,3];
+			console.log(typeof array);
+			console.log(array);
+			
+			//定义2（对象创建）
+			var arr1 = new Array();//空数组
+			var arr2 = new Array("关羽","张飞","刘备");
+			var arr3 = new Array(1,2,3);
+			var arr3 = new Array(3);//同名数组后面覆盖
+			console.log(arr1);
+			console.log(arr2);
+			console.log(arr3);
+			
+			//通过索引值获取元素。
+			var arr=["刘备","张飞","关羽"];
+			console.log(arr[0]);
+			console.log(arr[1]);
+			console.log(arr[2]);
+			
+			//通过索引值，给元素赋值
+			arr[0] = "韩信";
+			arr[1] = "萧何";
+			arr[2] = "张良";
+			console.log(arr[0]);
+			console.log(arr[1]);
+			console.log(arr[2]);
+			
+			//遍历数组就是循环（获取）数组中的每一项
+			var arr = ["关羽","张飞","赵云","马超","黄忠"];
+			for(var i=0;i<arr.length;i++){
+				console.log(arr[i]);
+			}
+			
+		</script>
+	</body>
+</html>

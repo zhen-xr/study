@@ -25,6 +25,106 @@
 				}
 			}
 			console.log(arr);
+			
+			//数组长度本身开始的时候是0，紧接着每添加进去一个值，数组长度自增1；
+			//新的变量j可以用，arr.length替代，因为初始化值也是0，每添加一个元素也是自增1.
+			var arr=[];
+			for(var i=1;i<=10;i++){
+				if(i%2===1){
+					arr[arr.length]=i;
+				}
+			}
+			console.log(arr);
+			
+			//1-10之间能被3整数的数字，存到数组中
+			//数组的长度刚好可以作为数组中下一个元素的索引值。
+			var arr=[];
+			for(var i=1;i<=10;i++){
+				if(i%3===0){
+					arr[arr.length]=i;
+				}
+			}
+			console.log(arr);
+			
+			//求一组数中的所有数的和和平均值
+			var arr=[10,20,30];
+			var sum=0;
+			for(var i=0;i<arr.length;i++){
+				sum+=arr[i];
+			}
+			var avg=sum/arr.length;
+			console.log(sum);
+			console.log(avg);
+			
+			//求一组数中的最大值和最小值，以及所在位置
+			  var arr = [-10,20,-30,40];
+			  var max=arr[0];
+			  for(var i=0;i<arr.length;i++){
+				  if(max<arr[i]){
+					  max=arr[i];
+				  }
+			  }
+			  console.log(max);
+			  
+			    //定义一个最大值和一个最小值，把他们的索引值赋值给固定的两个变量
+				var arr=[10,-20,30,50];
+				var max = [0];
+				var min = [0];
+				max = 0;
+				min = 0;
+				for(var i=0;i<arr.length;i++){
+					 if(arr[i]>max){
+						 max=arr[i];
+					 }
+					 if(arr[i]<min){
+						 min=arr[i];
+					 }
+				}
+				console.log(max);
+				console.log(min);
+				
+				//将字符串数组用|或其他符号分割
+				   var arr = ["赵云","典韦","关羽","马超","张飞"];
+				   var str = ["吕布"];
+				   var separator = "|";
+				   for(var i=0;i<arr.length;i++){
+					   str += separator+arr[i]; 
+				   }
+				   console.log(str);
+				   
+				   //四、将数组中值为0的去掉，不为0的存入一个新数组
+				      var arr = [0,"刘备",0,"关羽",0,"张飞",0];
+					  var str = [];
+					  for(var i=0;i<arr.length;i++){
+						  if(arr[i]!==0){
+							  str+=arr[i];
+						  }
+					  }
+					  console.log(str);
+					  
+					  //五、翻转数组
+					  var arr = ["刘备","关羽","张飞","诸葛亮","马超","黄忠","姜维"];
+					  var newarr = [];
+					  for(var i=0;i<arr.length;i++){
+						  newarr+=arr[arr.length-1-i];
+					  }
+					  console.log(newarr);
+					  
+					  var arr = ["刘备","关羽","张飞","诸葛亮","马超","黄忠","姜维"];
+					  var newarr = [];
+					  for(var i=arr.length-1;i>=0;i--){
+					  	  newarr+=arr[i];
+					  }
+					  console.log(newarr);
+					  
+					  //思路：实现方法：2.操作原数组，让原数组第一位和最后一个位调换位置，以此类推。
+					  var arr = ["刘备","关羽","张飞","诸葛亮","马超","黄忠","姜维"];
+					  for(var i=0;i<arr.length/2;i++){
+						  var newarr=arr[i];
+						  arr[i]=arr[arr.length-1-i];
+						  arr[arr.length-1-i]=newarr;
+					  }
+					  console.log(arr);
 		</script>
 	</body>
 </html>
