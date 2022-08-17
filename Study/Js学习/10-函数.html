@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//定义方法
+			//第一种
+			function fn1(){
+			    console.log("我是第一种定义方法！");
+			}
+			//第二种(匿名函数)
+			var fn2 = function (){
+			    console.log("我是第二种定义方法！");
+			}
+			//第三种
+			var fn3 = new Function("console.log('我是第三种定义方法！')");
+			
+			//调用函数
+			fn()
+			
+			//函数的组成分为：      1.参数。    2.返回值。    3.功能。
+			//如果函数名相同，后面的函数会覆盖前面的函数。（函数名，不能一样）
+			//需求：1+1=2
+			function fn1(){
+				console.log(1+1);
+			}
+			fn1();
+			
+			//设置参数解决问题。（修改值，不修改规则的问题）
+			function fn2(a,b){
+				console.log(a+b);
+			}
+			fn2(1,2);
+
+		//如果形参个数与实参个数不匹配...（一般情况下，我们不会让形参和实参不匹配）
+		//1.相等的话，正常执行。
+		//2.实参大于形参，正常执行。（多余的实参，函数不使用）
+		//3.实参小于形参，要看你的程序是否报错。（报错，NaN，undefined）
+		//未给定实参的形参为undefined;
+				
+				
+		//什么是返回值：执行完毕函数以后，我们能给其他变量赋值。		
+		//返回值干什么用的呢？一般来讲，函数通过运算出来的数都是一个半成品，需要二次加工。
+		function fn3(){
+			var aaa=111;
+			return aaa;
+		}
+		var bbb=fn3();
+		console.log(bbb);
+		
+		//函数的返回值必须要执行函数才能得到。
+		//求和：
+		function sumfn1(){
+				var sum=0;
+			for(var i=1;i<=10;i++){
+				sum+=i;
+			}
+				return sum;
+		}
+		var num = sumfn1();
+		console.log(num);
+		
+		//规则中有几个变化的值，我们就定义几个变量。
+		//外部要用哪个值，我们就返回哪个值。
+		var aaa = fn4(1,1);
+		console.log(aaa);
+		console.log(fn4(2,2));
+		function fn4(a,b){
+			sum = a + b;
+			return sum;
+		}
+		
+		//(参数和返回值)
+		//求圆的周长(long=2*pi*r)
+		function long(r){
+			var pi=3.14
+			var l=2*pi*r;
+			return l;
+		}
+		var long1=long(0.5);
+		console.log(long1);
+		console.log(long(1));
+		
+		//求圆的和面积(area = pi*r*r)
+		function area(r){
+			// var pi=3.14;
+			// var are=pi*r*r;
+			// return are;
+			return Math.PI*Math.pow(r,2);
+		}
+		console.log(area(1));
+		
+		//求2个数中的最大值
+		function getmax(sum1,sum2){
+			// if(sum1>sum2){
+			// 	return sum1;
+			// }else{
+			// 	return sum2;
+			// }
+			return sum1>sum2?sum1:sum2;
+		}
+		console.log(getmax(1,2));
+		
+		//求3个数中的最大值
+		function getmax2(a,b,c){
+			return (a>b?a:b)>c?(a>b?a:b):c;
+		}
+		console.log(getmax2(1,2,3));
+		
+		//求一组数中的最大值
+		var arr = [10,-3,-2,-1,0,1,2,3,8];
+		function getarrmax(arr){
+				var sum=arr[0];
+			for(var i=0;i<arr.length;i++){
+				if(arr[i]>sum){
+					sum=arr[i];
+				}
+			}
+			return sum;
+		}
+		console.log(getarrmax(arr));
+		
+		//求一组数中的最小值
+		var arr = [10,-3,-2,-1,0,1,2,3,8];
+		function getarrmin(array){
+				var sum=array[0];
+			for(var i=0;i<array.length;i++){
+				if(array[i]<sum){
+					sum=array[i];
+				}
+			}
+			return sum;
+		}
+		console.log(getarrmin(arr));
+		
+		//翻转数组，返回一个新数组
+		var arr=[1,2,3,4,5];
+		function reverse1(arr){
+			var temp=[];
+			for(var i=arr.length-1 ;i>=0;i--){
+				temp[temp.length]=arr[i];
+			}
+			return temp;
+		}
+		console.log(reverse1(arr));
+		
+		var arr=[1,2,3,4,5,6,7,8,9];
+		function reverse2(arr){
+			for(var i=arr.length-1;i>=0;i--){
+				var temp=arr[arr.length];
+				arr[arr.length]=arr[arr.length-1-i];
+				arr[arr.length-1-i]=temp;
+			}
+			return arr;
+		}
+		console.log(reverse1(arr));
+		//对数组排序，从小到大
+		var arr=[454,78,787,45,54,5];
+		function bubble(arr){
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr.length;j++){
+					if(arr[j]>arr[j+1]){
+						var sum=arr[j];
+						arr[j]=arr[j+1];
+						arr[j+1]=sum;
+					}
+				}
+			}
+			return arr;
+		}
+		console.log(bubble(arr));
+		
+		//    求阶乘
+		function getJC(sum){
+			var temp=1;
+			for(var i=1;i<=sum;i++){
+				temp*=i;
+			}
+			return temp;
+		}
+		console.log(getJC(5));
+		
+		    //求阶乘的和
+			//    求1!+2!+3!+....+n!（函数嵌套）
+			function getjcsum(num){
+				var temp=0;
+				for(var i=1;i<=num;i++){
+					temp+=getJC(i);
+				}
+				return temp;
+			}
+			console.log(getjcsum(2));
+			
+			
+			//判断一个数是否是素数(质数)
+			//思路：除了自身和1以外，不能被其他数整除。
+			//注意点：
+			//1.必须用for循环实现
+			//2.判断是否是素数，所以她的返回值应该是true或者false。
+			//3.如果num%i===0了，那么一定不是素数。只有出了1和自身以外所有的数都不能整除，那么才能说她是素数。
+				function isprime(num){
+					for(var i=2;i<num;i++){
+						if(num%i!==0){
+							return console.log("素数");
+						}
+					}
+					return console.log("非素数!");
+				}
+				console.log(isprime(13));
+		</script>
+	</body>
+</html>
