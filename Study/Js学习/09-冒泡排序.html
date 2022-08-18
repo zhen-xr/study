@@ -13,13 +13,13 @@
 			//1.双重for循环。
 			//2.指定轮数和次数
 			//3.判断是否符合标准。如果符合标准交换位置。
-			var arr = [7,6,5,4,3,2,1];
-			for(var i=0;i<arr.length;i++){
-				for(var j=0;j<arr.length;j++){
-					if(arr[j]>arr[j+1]){
-					var temp = arr[j];
-					arr[j] = arr[j+1];
-					arr[j+1] = temp;
+			var arr = [7, 6, 5, 4, 3, 2, 1];
+			for (var i = 0; i < arr.length; i++) {
+				for (var j = 0; j < arr.length; j++) {
+					if (arr[j] > arr[j + 1]) {
+						var temp = arr[j];
+						arr[j] = arr[j + 1];
+						arr[j + 1] = temp;
 					}
 				}
 			}

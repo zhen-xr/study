@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr = ["a", "b", "c", "d", "c", "b", "a", "a"];
+			//indexOf从前往后给元素查索引，找到一个后，立刻返回。
+			console.log(arr.indexOf("x")); //-1
+			console.log(arr.indexOf("a")); //0
+			console.log(arr.indexOf("c")); //2
+
+			//lastIndexOf从后往前给元素查索引，找到一个后，立刻返回。
+			console.log(arr.lastIndexOf("a")); //7
+			console.log(arr.lastIndexOf("b")); //5
+			console.log(arr.lastIndexOf("x")); //-1
+		</script>
+	</body>
+</html>

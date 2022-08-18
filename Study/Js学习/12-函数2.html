@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//需求：封装一个函数，求斐波那契数列的第n项
+			function getvalue(n) {
+				var num1 = 1;
+				var num2 = 1;
+				for (var i = 3; i <= n; i++) {
+					var temp = num2;
+					num2 = num1 + num2;
+					num1 = temp;
+				}
+				return num2;
+			}
+			console.log(getvalue(12));
+
+			//需求：输入某年某月某日，判断这一天是这一年的第几天？（闰年）
+			//（四年一闰，百年不闰，四百年在闰）
+			function getdays(year, month, day) {
+				var arr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+				for (var i = 0; i < month - 1; i++) {
+					day += arr[i];
+				}
+				if ((year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) && month > 2) {
+					day = day + 1;
+				}
+				return day;
+			}
+			console.log(getdays(2016, 12, 31));
+
+			//用递归求1+100和。
+			function sum(n) {
+				if (n < 1) {
+					return 0;
+				}
+				return n + sum(n - 1);
+			}
+			console.log(sum(100));
+
+			//回调函数一般是用于定义一个规则来使用的。
+			//规则的传递只能通过函数实现。通过变量无法达成。所以我们需要传递规则的时候必须使用回调函数。
+			function fn(num1, num2, demo) {
+				return demo(num1, num2);
+			}
+			//定义四个规则：加减乘除
+			function test1(a, b) {
+				return a + b;
+			}
+
+			function test2(a, b) {
+				return a - b;
+			}
+
+			function test3(a, b) {
+				return a * b;
+			}
+
+			function test4(a, b) {
+				return a / b;
+			}
+			console.log(fn(10, 5, test3));
+		</script>
+	</body>
+</html>

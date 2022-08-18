@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//需求：单个自定义对象。
+			//缺点：传单单个对象的时候还好，创建多个多线的时候变得非常繁琐
+			//创建多个对象，for循环不能修改名字的值。函数也可以创建多个对象。
+			var student1 = new Object();
+			student1.name = "李四";
+			student1.say1 = function() {
+				console.log(this.name + "说:你好!");
+			}
+			console.log(student1.name);
+			student1.say1();
+
+
+			//需求：多个自定义对象。
+			//缺点：代码冗余，方式比较low。当我们创建空白对象的时候：new Object();
+			//利用构造函数自定义对象。
+			var stu1 = new student("张三");
+			var stu2 = new student("李五");
+
+			function student(name) {
+				// var student2 = new Object;
+				this.name = name;
+				this.say2 = function() {
+					console.log(this.name + "说:你好!");
+				}
+				// return student2;
+			}
+			console.log(stu1);
+			stu1.say2();
+			console.log(stu2);
+			stu2.say2();
+		</script>
+	</body>
+</html>

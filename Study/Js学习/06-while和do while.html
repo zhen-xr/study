@@ -8,45 +8,43 @@
 		<script>
 			//求和演示
 			var sumWhile = 0;
-			var i=1;
-			while(i<=100){
-			    sumWhile += i;
-			    i++;
+			var i = 1;
+			while (i <= 100) {
+				sumWhile += i;
+				i++;
 			}
 			console.log(sumWhile);
-			
-			
+
+
 			var j = 1;
 			var sumDoWhile = 0;
-			do{
-			    sumDoWhile += j;
-			    j++;
-			}while(j<0);
-			
+			do {
+				sumDoWhile += j;
+				j++;
+			} while (j < 0);
+
 			console.log(sumDoWhile);
-			
+
 			//死循环求和
-			var sum=0;
-			var i=1;
-			while(true){
-				sum+=i;
+			var sum = 0;
+			var i = 1;
+			while (true) {
+				sum += i;
 				i++;
-				if(i>100){
+				if (i > 100) {
 					break;
 				}
 			}
 			console.log(sum);
-			
+
 			//需求：点击取消一直弹窗下去。如果点击确定，立马结婚。
-			do{
-				var bool=confirm("嫁给我吧!");
-				if(bool){
+			do {
+				var bool = confirm("嫁给我吧!");
+				if (bool) {
 					alert("我们去三亚拍结婚照吧!");
 					break;
 				}
-			}while(!bool);
-			
-				
+			} while (!bool);
 		</script>
 	</body>
 </html>
