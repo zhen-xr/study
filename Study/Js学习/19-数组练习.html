@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//    将一个字符串数组输出为|分割的形式，比如“刘备|张飞|关羽”。使用两种方式实现
+			//方法1
+			var arr1 = ["刘备", "张飞", "关羽"]
+			var str1 = ["张飞", "关羽"];
+			var str2 = ["刘备"];
+			var line = "|";
+			for (var i = 0; i < str1.length; i++) {
+				str2 += line + str1[i];
+			}
+			console.log(str2);
+			//方法2-join
+			console.log(arr1.join("|"));
+
+			//    将一个字符串数组的元素的顺序进行反转。["a","b","c","d"] ["d","c","b","a"]。
+			// 使用两种种方式实现。提示：第i个和第length-i-1个进行交换
+			//方法1
+			var arr2 = ["a", "b", "c", "d"];
+			for (var i = arr2.length - 1; i >= 0; i--) {
+				var temp;
+				temp = arr2[0];
+				arr2[0] = arr2[i];
+				arr2[i] = temp;
+			}
+			console.log(arr2);
+			//方法2-reverse
+			console.log(arr2.reverse());
+
+			// 工资的数组[1500,1200,2000,2100,1800],把工资超过2000的删除
+			var arr3 = [1500, 1200, 2000, 2100, 1800];
+			var arr4 = arr3.filter(function(ele, index, array) {
+				if (ele <= 2000) {
+					return true;
+				}
+				return false;
+			})
+			console.log(arr3);
+			console.log(arr4);
+
+			// ["c","a","x","a","x","a"]找到数组中每一个元素出现的次数
+			var arr5 = ["c", "a", "x", "a", "x", "a"];
+			var json = {};
+			for (var i = 0; i < arr5.length; i++) {
+				if (json[arr5[i]]) {
+					json[arr5[i]] += 1;
+				} else {
+					json[arr5[i]] = 1;
+				}
+			}
+			console.log(json);
+
+			//    编写一个方法 去掉一个数组的重复元素
+			var arr = [1, 2, 3, 4, 5, 2, 3, 4];
+			var newarr = [];
+			for (var i = 0; i < arr.length - 1; i++) {
+				bool = true;
+				for (var j = 0; j < newarr.length; j++) {
+					if (arr[i] === newarr[j]) {
+						bool = false;
+					}
+				}
+				if (bool) {
+					newarr[newarr.length] = arr[i];
+				}
+			}
+			console.log(arr);
+			console.log(newarr);
+		</script>
+	</body>
+</html>
