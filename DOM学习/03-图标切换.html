@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="image/jd1.png" id="JDdog">
+
+		<script>
+			//window.onload页面加载完毕以后再执行此代码
+			window.onload = function() {
+				//1 
+				var img = document.getElementById("JDdog");
+				//2 (onmouseover悬停事件： 鼠标进入到事件源中立即出发事件)
+				img.onmouseover = function() {
+					//3	
+					img.src = "image/jd2.png";
+				}
+
+				//1
+				var img = document.getElementById("JDdog");
+				//2 (onmouseout悬停事件： 鼠标离开事件源中立即出发事件)
+				img.onmouseout = function() {
+					//3	
+					// img.src = "image/jd1.png";
+					this.src = "image/jd1.png";
+				}
+			}
+		</script>
+	</body>
+</html>
