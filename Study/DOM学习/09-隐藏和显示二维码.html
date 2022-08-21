@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.nodeSmall {
+				width: 50px;
+				height: 50px;
+				background: url(image/bgs.png) no-repeat -159px -51px;
+				position: fixed;
+				right: 10px;
+				top: 40%;
+			}
+
+			.erweima {
+				position: absolute;
+				top: 0;
+				left: -150px;
+			}
+
+			.nodeSmall a {
+				display: block;
+				width: 50px;
+				height: 50px;
+			}
+
+			.hide {
+				display: none;
+			}
+
+			.show {
+				display: block;
+			}
+		</style>
+
+		<script>
+			window.onload = function() {
+				//需求：鼠标放到a链接上，显示二维码（添加show类名，去掉hide类名）
+				//鼠标移开a链接，隐藏二维码（添加hide类名，去掉show类名）
+				//步骤：
+				//1.获取事件源和相关元素
+				//2.绑定事件
+				//3.书写事件驱动程序
+				
+				//1.获取事件源和相关元素
+				var a = document.getElementsByTagName("a")[0];
+				var div = document.getElementsByClassName("erweima")[0];
+				//2.绑定事件
+				a.onmouseover = fn1;
+				a.onmouseout = fn2;
+				//3.书写事件驱动程序
+				function fn1() {
+					div.className = "erweima show";
+				}
+				function fn2() {
+					div.className = "erweima hide";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="nodeSmall">
+			<a href="#"></a>
+			<div class="erweima hide">
+				<img src="image/456.png" />
+			</div>
+		</div>
+	</body>
+</html>

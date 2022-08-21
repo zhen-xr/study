@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.wrong {
+				border: 2px solid red;
+			}
+
+			.right {
+				border: 2px solid #91B81D;
+			}
+		</style>
+	</head>
+	<body>
+		账号:<input type="text" onblur="fn(this)" />
+		<br><br>
+		密码:<input type="password" onblur="fn(this)" />
+
+		<script type="text/javascript">
+			function fn(aaa) {
+				if (aaa.value.length < 6 || aaa.value.length > 12) {
+					aaa.className = "wrong";
+				} else {
+					aaa.className = "right";
+				}
+			}
+		</script>
+	</body>
+</html>
