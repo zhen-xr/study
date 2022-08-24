@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div style="width: 100px;height: 100px;background-color: pink;"></div>
+		
+		<script type="text/javascript">
+			var div = document.getElementsByTagName("div")[0];
+			div.onmouseover = function() {
+				div.style.width = "200px";
+				div.style.height = "200px";
+				div.style.backgroundColor = "red";
+				div.style.opacity = "0.6";
+				div.style.filter = "alpha(opacity=20)";
+			}
+		</script>
+	</body>
+</html>

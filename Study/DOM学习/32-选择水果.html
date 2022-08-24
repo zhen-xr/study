@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			select {
+				width: 180px;
+				height: 240px;
+				font-size: 16px;
+				background-color: #7dff51;
+			}
+		</style>
+	</head>
+	<body>
+
+		<script>
+			window.onload = function() {
+				var sell = document.getElementById("sel1");
+				var sel2 = document.getElementById("sel2");
+				var btnArr = document.getElementsByTagName("button");
+				btnArr[0].onclick = function() {
+					var arr = sell.children;
+					for (var i = arr.length - 1; i >= 0; i--) {
+						sel2.appendChild(arr[arr.length - 1 - i]);
+					}
+				}
+				btnArr[1].onclick = function() {
+					var arr = sel2.children;
+					for (var i = arr.length - 1; i >= 0; i--) {
+						sel1.appendChild(arr[arr.length - 1 - i]);
+					}
+				}
+			}
+		</script>
+
+		<select name="" size="10" id="sel1" multiple>
+			<option value="">香蕉</option>
+			<option value="">苹果</option>
+			<option value="">鸭梨</option>
+			<option value="">葡萄</option>
+		</select>
+		<button>>>></button>
+		<button>
+			<<<< /button>
+				<button>></button>
+				<button>
+					<< /button>
+						<select name="" size="10" id="sel2" multiple>
+
+						</select>
+	</body>
+</html>
