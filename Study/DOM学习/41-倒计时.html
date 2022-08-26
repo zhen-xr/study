@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 1210px;
+				margin: 200px auto;
+				text-align: center;
+				font: 700 30px/30px "microsoft yahei";
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+
+		<script>
+			var div = document.getElementsByTagName("div")[0];
+			var timer = setInterval(fn, 1);
+
+			function fn() {
+				var nowtime = new Date();
+				var futrue = new Date("2022/09/01 00:00:00");
+				var timeSum = futrue.getTime() - nowtime.getTime();
+				var day = parseInt(timeSum / 1000 / 60 / 60 / 24);
+				var hour = parseInt(timeSum / 1000 / 60 / 60 % 24);
+				var minu = parseInt(timeSum / 1000 / 60 % 60);
+				var sec = parseInt(timeSum / 1000 % 60);
+				var millsec = parseInt(timeSum % 1000);
+
+				day = day < 10 ? "0" + day : day;
+				hour = hour < 10 ? "0" + hour : hour
+				minu = minu < 10 ? "0" + minu : minu;
+				sec = sec < 10 ? "0" + sec : sec;
+
+				div.innerHTML = "距离开学还有" + day + "天" + hour + "小时" + minu + "分钟" + sec + "秒";
+			}
+		</script>
+	</body>
+</html>

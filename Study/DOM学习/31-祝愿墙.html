@@ -138,7 +138,7 @@
 		<!--纸条墙-->
 		<div id="content">
 			<!--纸条-->
-			<div class="tip1" id="tip">
+			<!-- <div class="tip1" id="tip">
 				<div class="tip_h" title="双击关闭纸条">
 					<div class="num">第[49568]条 2016-07-7 22:51:52</div>
 					<div class="close" title="关闭纸条">×</div>
@@ -154,10 +154,67 @@
 					<div class="name">不愿意透露姓名的吕先生</div>
 					<div class="clr"></div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 
 		<script type="text/javascript">
+			//模拟数据库，获取信息
+			var messages = [{
+					"id": 1,
+					"name": "mahu",
+					"content": "今天你拿苹果支付了么",
+					"time": "2016-02-17 00:00:00"
+				},
+				{
+					"id": 2,
+					"name": "haha",
+					"content": "今天天气不错，风和日丽的",
+					"time": "2016-02-18 12:40:00"
+				},
+				{
+					"id": 3,
+					"name": "jjjj",
+					"content": "常要说的事儿是乐生于苦",
+					"time": "2016-03-18 12:40:00"
+				},
+				{
+					"id": 4,
+					"name": "9.8的妹纸",
+					"content": "把朋友家厕所拉堵了 不敢出去 掏了半小时了都",
+					"time": "2016-03-18 12:40:00"
+				},
+				{
+					"id": 5,
+					"name": "雷锋ii.",
+					"content": "元宵节快乐",
+					"time": "2016-02-22 12:40:00"
+				},
+				{
+					"id": 6,
+					"name": "哎呦哥哥.",
+					"content": "据说今晚央视的元宵晚会导演和春晚导演是同一个人，真是躲得过初一，躲不过十五。",
+					"time": "2016-02-22 01:30:00"
+				},
+				{
+					"id": 7,
+					"name": "没猴哥，不春晚",
+					"content": "班主任:“小明，你都十二岁了，还是三年级，不觉得羞愧吗”？。小明:“一点也不觉得，老师你都四十多岁了，不也是年年在三年级混日子吗？羞愧的应该是你”。老师:……",
+					"time": "2016-02-22 01:30:00"
+				},
+				{
+					"id": 8,
+					"name": "哎呦杰杰.",
+					"content": "真搞不懂你们地球人，月亮有什么好看的，全是坑，还是对面那哥们好看，",
+					"time": "2016-02-22 01:30:00"
+				},
+				{
+					"id": 9,
+					"name": "哎呦哎呦",
+					"content": "今天哪里的烟花最好看！！？答：朋友圈。。。",
+					"time": "2016-02-22 02:30:00"
+				}
+			];
+
 			//需求：克隆盒子，然后随机位置，点击纸条的时候压住其他的纸条。
 			//思路：获取纸条，克隆，随机数值绑定到纸条上，添加到父盒子中，然后绑定事件层级最高。
 			//步骤：
@@ -166,24 +223,55 @@
 			//3.添加到父盒子中
 			//4.然后绑定事件层级最高
 
-			for (var i = 0; i <= 10; i++) {
-				//1.获取纸条，克隆
-				var tip = document.getElementById("tip");
-				var content = document.getElementById("content");
-				var newTip = tip.cloneNode(true);
-				//问题：id问题。
-				newTip.id = newTip.id + i;
+			var content = document.getElementById("content");
+			for (var i = 0; i <= messages.length; i++) {
+				//生成新标签
+				var newDiv = document.createElement("div");
+				//绑定类名和ID
+				newDiv.className = "tip1";
+				newDiv.id = "tip" + messages[i].id;
 				//2.随机数值绑定到纸条上(top不要超过400，left不要超过700)
 				var topValue = parseInt(Math.random() * 400); //(取值是0-1，那么乘以400,取值就是0-400)
 				var leftValue = parseInt(Math.random() * 700);
-				newTip.style.top = topValue + "px";
-				newTip.style.left = leftValue + "px";
+				newDiv.style.top = topValue + "px";
+				newDiv.style.left = leftValue + "px";
+				//赋值内容
+				newDiv.innerHTML = '<div class="tip_h" title="双击关闭纸条">' +
+					'<div class="num">第[49568]条 ' + messages[i].time + '</div>' +
+					'<div class="close" title="关闭纸条" >×</div>' +
+					'<div class="clr"></div>' +
+					'</div>' +
+					'<div class="tip_c">' +
+					messages[i].content +
+					'</div>' +
+					'<div class="tip_f">' +
+					'<div class="icon">' +
+					'<img src="images/bpic_1.gif" alt="" title="">' +
+					'</div>' +
+					'<div class="name">' + messages[i].name + '</div>' +
+					'<div class="clr"></div>' +
+					'</div>';
 				//3.添加到父盒子中
-				content.appendChild(newTip);
+				content.appendChild(newDiv);
 				//4.然后绑定事件层级最高
-				newTip.onclick = fn;
+				newDiv.onclick = fn;
+				//点击关闭按钮的时候关闭父盒子。
+				var closeDiv = newDiv.getElementsByClassName("close")[0];
+				closeDiv.onclick = function() {
+					//不能用newDiv，因为在页面加载的时候newDiv，已经变成最后一个了，当你点击的时候，用远关闭的是最后的那个div。
+					//                content.removeChild(newDiv);
+					content.removeChild(this.parentNode.parentNode);
+				}
+
+				//双击关闭按钮类名叫做tip_h
+				var dbDiv = newDiv.getElementsByClassName("tip_h")[0];
+				dbDiv.ondblclick = function() {
+					//不能用newDiv，因为在页面加载的时候newDiv，已经变成最后一个了，当你点击的时候，用远关闭的是最后的那个div。
+					//                content.removeChild(newDiv);
+					content.removeChild(this.parentNode);
+				}
+
 			}
-			tip.onclick = fn;
 			var index = 1;
 
 			function fn() {

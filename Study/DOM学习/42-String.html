@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//内置对象
+			var str1 = "abc";
+			console.log(str1.indexOf("c")); //2
+			console.log(str1.lastIndexOf("c")); //2
+
+			//了解；数据传递的时候经常需要通过编码后在传递，接收后还需要反编译回来。
+			var url = "http://www.itcast.cn?username='aaa'&password='123'";
+			console.log(encodeURIComponent(url));
+			console.log(decodeURIComponent(encodeURIComponent(url)));
+
+
+			//给索引查字符
+			var str2 = new String("abcd");
+
+			console.log(str2);
+			for (var i = 0; i < str2.length; i++) {
+				console.log(str2.charAt(i));
+			}
+			console.log(str2.charAt(0));
+			console.log(str2.charAt(1));
+			console.log(str2.charAt(2));
+			console.log(str2.charAt(3));
+
+			//返回unicode中的码表值。
+			console.log(str2.charCodeAt(0));
+
+
+			//    sort();   底层用到了charCodeAt();
+			//打印字符串占位长度
+			var str3 = "I love my country!我爱你中国!";
+			//"我爱你"：一汉字占两个字符位。
+			//需求：求一个字符串占有几个字符位。
+			//思路；如果是英文，站一个字符位，如果不是英文占两个字符位。
+			//技术点：判断该字符是否在0-127之间。（在的话是英文，不在是非英文）
+			console.log(getZFWlength(str3));
+			console.log(str3.length);
+			console.log(str3);
+
+			function getZFWlength(string) {
+				//定义一个计数器
+				var count = 0;
+				for (var i = 0; i < string.length; i++) {
+					//对每一位字符串进行判断，如果Unicode编码在0-127，计数器+1；否则+2
+					if (string.charCodeAt(i) < 128 && string.charCodeAt(i) >= 0) {
+						count++;
+					} else {
+						count += 2;
+					}
+				}
+				return count;
+			}
+
+
+			//字符串连接和截取
+			//concat(); 连接两个字符串返回一个新字符串，并且不会被修改
+			var str4 = "abc";
+			var str5 = "123";
+			var str6 = str4.concat(str5);
+			console.log(str4);
+			console.log(str5);
+			console.log(str6);
+
+			//lice(); 跟剧索引值和索引值截取字符串
+			var str7 = "I love my family";
+			console.log(str7);
+			console.log(str7.slice(2)); //love my family
+			console.log(str7.slice(2, 4)); //lo
+			console.log(str7.slice(-3)); //ily
+			console.log(str7.slice(5, 2)); //空字符串
+
+			//substr(); 跟剧索引值和长度值截取字符串
+			console.log(str7.substr(2)); //love my family
+			console.log(str7.substr(2, 4)); //love
+			console.log(str7.substr(-3)); //ily
+			console.log(str7.substr(7, 2)); //my
+
+			//substring(); 跟剧索引值和索引值截取字符串
+			console.log(str7.substring(2)); //love my family
+			console.log(str7.substring(2, 4)); //lo
+			console.log(str7.substring(-1)); //全部截取
+			console.log(str7.substring(4, 2)); //智能调换
+			
+			
+			// 特殊方法
+			//去除前后空格，trim();
+			var str8 = "    a    b   c    ";
+			console.log(str8);
+			console.log(str8.trim());
+			
+			//replace()替换
+			var str9 = "Today is fine day,today is fine day a!!!";
+			console.log(str9);
+			console.log(str9.replace(/today/gi,"timorrow"));
+			
+			//字符串变数组split();  无参，是把字符串作为一个元素添加进数组中。空字符串，分隔字符串中每一个字符，分别添加进入数组中
+			//指定字符分隔数组：特殊符号将不会出现在数组的任意一个元素中
+			var str10 = "关羽|张飞|刘备";
+			console.log(str10);
+			console.log(str10.split("|"));
+			
+			
+			//大小写和创建标签
+			var str11 = "abcdEFG";
+			//toLowerCase();转换成小写
+			console.log(str11.toLowerCase());
+			//toUpperCase();转换成大写
+			console.log(str11.toUpperCase());
+			//校验上传文件格式（图片img/png/jpg/gif）(查找最后一个.截取到最后，判断value属性值)
+			//    document.getElementsByTagName("input")[0].onchange = function () {
+			//        alert(this.value);
+			
+			var str = "你好";
+			
+			console.log(str.anchor())
+			console.log(str.big())
+			console.log(str.sub())
+			console.log(str.sup())
+			console.log(str.link("http://www.baidu.com"));
+			console.log(str.bold())
+			   
+		</script>
+	</body>
+</html>

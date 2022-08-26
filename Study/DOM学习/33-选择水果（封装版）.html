@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			select {
+				width: 170px;
+				height: 200px;
+				font-size: 16px;
+				background-color: #7DFF51;
+			}
+		</style>
+	</head>
+	<body>
+		<select name="" id="sel1" size="10" multiple>
+			<option value="">香蕉</option>
+			<option value="">苹果</option>
+			<option value="">鸭梨</option>
+			<option value="">葡萄</option>
+		</select>
+		<input type="button" value=">>>">
+		<input type="button" value="<<<">
+		<input type="button" value=">">
+		<input type="button" value="<">
+		<select name="" id="sel2" size="10" multiple>
+
+		</select>
+
+		<script>
+			var sel1 = document.getElementById("sel1");
+			var sel2 = document.getElementById("sel2");
+			var inpArr = document.getElementsByTagName("input");
+
+			inpArr[0].onclick = function (){
+				fn1(sel1,sel2);
+			}
+			inpArr[1].onclick = function (){
+				fn1(sel2,sel1);
+			}
+			inpArr[2].onclick = function (){
+				fn2(sel1,sel2);
+			}
+			inpArr[3].onclick = function (){
+				fn2(sel2,sel1);
+			}
+			
+			function fn1(ele1, ele2) {
+				var arr = ele1.children;
+				for (var i = arr.length - 1; i >= 0; i--) {
+					ele2.appendChild(arr[0]);
+				}
+			}
+
+			function fn2(ele1, ele2) {
+				var arr = ele1.children;
+				for (var i = arr.length - 1; i >= 0; i--) {
+					if (arr[i].selected === true) {
+						ele2.appendChild(arr[i]);
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
