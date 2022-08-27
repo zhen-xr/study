@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body,
+			ul,
+			ol,
+			li,
+			img {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+
+			#box {
+				width: 490px;
+				height: 260px;
+				padding: 5px;
+				position: relative;
+				border: 1px solid #ccc;
+				margin: 100px auto 0;
+				overflow: hidden;
+			}
+
+			.ad {
+				width: 490px;
+				height: 260px;
+				overflow: hidden;
+				position: relative;
+			}
+
+			#box img {
+				width: 490px;
+			}
+
+			.ad ol {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+			}
+
+			.ad ol li {
+				width: 20px;
+				height: 20px;
+				line-height: 20px;
+				border: 1px solid #ccc;
+				text-align: center;
+				background: #fff;
+				float: left;
+				margin-right: 10px;
+				cursor: pointer;
+				_display: inline;
+			}
+
+			.ad ol li.current {
+				background: yellow;
+			}
+
+			.ad ul li {
+				float: left;
+			}
+
+			.ad ul {
+				position: absolute;
+				top: 0;
+				width: 2940px;
+			}
+
+			.ad ul li.current {
+				display: block;
+			}
+
+			#arr {
+				display: none;
+			}
+
+			#arr span {
+				width: 40px;
+				height: 40px;
+				position: absolute;
+				left: 5px;
+				top: 50%;
+				margin-top: -20px;
+				background: #000;
+				cursor: pointer;
+				line-height: 40px;
+				text-align: center;
+				font-weight: bold;
+				font-family: '黑体';
+				font-size: 30px;
+				color: #fff;
+				opacity: 0.3;
+				border: 1px solid #fff;
+			}
+
+			#arr #right {
+				right: 5px;
+				left: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box" class="all">
+			<div class="ad">
+				<ul id="imgs">
+					<li><img src="images/1.jpg" /></li>
+					<li><img src="images/2.jpg" /></li>
+					<li><img src="images/3.jpg" /></li>
+					<li><img src="images/4.jpg" /></li>
+					<li><img src="images/5.jpg" /></li>
+				</ul>
+			</div>
+			<div id="arr">
+				<span id="left">&lt;</span>
+				<span id="right">&gt;</span>
+			</div>
+		</div>
+
+		<script>
+			var box = document.getElementById("box");
+			var ad = box.children[0].children[0];
+			var lis = ad.children;
+			var arr = box.children[1];
+			var arrLeft = arr.children[0];
+			var arrRight = arr.children[1];
+
+			box.onmouseover = function() {
+				arr.style.display = "block";
+			}
+			box.onmouseout = function() {
+				arr.style.display = "none";
+			}
+
+			var disance = 0;
+			arrLeft.onclick = function() {
+				disance += 490;
+				if (disance >= 0) {
+					disance = 0;
+				}
+				animate(ad, disance);
+			}
+			arrRight.onclick = function () {
+				disance -= 490;
+				if(disance<= - (lis.length-1)*490){
+					disance = -(lis.length-1)*490;
+				}
+				animate(ad,disance);
+			}
+
+
+			function animate(obj, disance) {
+				clearInterval(obj.timer)
+
+				var speed = disance > obj.offsetLeft ? 10 : -10;
+				obj.timer = setInterval(function() {
+					var result = disance - obj.offsetLeft;
+					obj.style.left = obj.offsetLeft + speed + "px";
+					if(Math.abs(result)<=Math.abs(speed)){
+						obj.style.left = disance + "px";
+						clearInterval(obj.timer);
+					}
+				}, 10);
+			}
+		</script>
+	</body>
+</html>
